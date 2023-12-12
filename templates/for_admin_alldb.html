@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+    </style>
+
+</head>
+<body>
+
+    <h1>THIS IS ALL DB</h1><br>
+
+    <!-- THIS SECTION FOR TABLE 'images' -->
+    <h3>Table 'images'</h3>
+    <table>
+        <TR>
+            <TH>id</TH>
+            <TH>image_url</TH>
+            <TH>title</TH>
+        </TR>
+        {% for data in data_images %}
+        <TR>
+            <TD class="c1">{{data.id}}</TD>
+            <TD class="c3">{{data.image_url}}</TD>
+            <TD class="c4">{{data.title}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+
+    <!-- THIS SECTION FOR TABLE 'users' -->
+    <h3>Table 'users'</h3>
+    <table>
+        <TR>
+            <TH>user_id</TH>
+            <TH>name</TH>
+            <TH>email</TH>
+            <TH>phone_number</TH>
+            <TH>password</TH>
+            <TH>type</TH>
+            <TH>buyer_balance</TH>
+            <TH>seller_revenue</TH>
+            <TH>token</TH>
+            <TH>address_name</TH>
+            <TH>address_phone</TH>
+            <TH>address</TH>
+            <TH>city</TH>
+        </TR>
+        {% for data in data_users %}
+        <TR>
+            <TD class="c1">{{data.user_id}}</TD>
+            <TD class="c2">{{data.name}}</TD>
+            <TD class="c3">{{data.email}}</TD>
+            <TD class="c4">{{data.phone_number}}</TD>
+            <TD class="c5">{{data.password}}</TD>
+            <TD class="c6">{{data.type}}</TD>
+            <TD class="c7">{{data.buyer_balance}}</TD>
+            <TD class="c8">{{data.seller_revenue}}</TD>
+            <TD class="c9">{{data.token}}</TD>
+            <TD class="c9">{{data.address_name}}</TD>
+            <TD class="c9">{{data.address_phone}}</TD>
+            <TD class="c9">{{data.address}}</TD>
+            <TD class="c9">{{data.city}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+    <!-- THIS SECTION FOR TABLE 'categories' -->
+    <h3>Table 'categories'</h3>
+    <table>
+        <TR>
+            <TH>id</TH>
+            <TH>title</TH>
+            <TH>deleted</TH>
+            <TH>ai_category</TH>
+        </TR>
+        {% for data in data_categories %}
+        <TR>
+            <TD class="c1">{{data.id}}</TD>
+            <TD class="c2">{{data.title}}</TD>
+            <TD class="c2">{{data.deleted}}</TD>
+            <TD class="c2">{{data.ai_category}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+
+    
+
+
+    <!-- THIS SECTION FOR TABLE 'products' -->
+    <h3>Table 'products'</h3>
+    <table>
+        <TR>
+            <TH>product_id</TH>
+            <TH>product_owner</TH>
+            <TH>owner_id</TH>
+            <TH>product_name</TH>
+            <TH>description</TH>
+            <TH>images</TH>
+            <TH>condition</TH>
+            <TH>category</TH>
+            <TH>price</TH>
+            <TH>deleted</TH>
+        </TR>
+        {% for data in data_products %}
+        <TR>
+            <TD class="c1">{{data.product_id}}</TD>
+            <TD class="c1">{{data.product_owner}}</TD>
+            <TD class="c1">{{data.owner_id}}</TD>
+            <TD class="c2">{{data.product_name}}</TD>
+            <TD class="c3">{{data.description}}</TD>
+            <TD class="c4">{{data.images}}</TD>
+            <TD class="c5">{{data.condition}}</TD>
+            <TD class="c6">{{data.category}}</TD>
+            <TD class="c7">{{data.price}}</TD>
+            <TD class="c7">{{data.deleted}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+    <!-- THIS SECTION FOR TABLE 'cart' -->
+    <h3>Table 'cart'</h3>
+    <table>
+        <TR>
+            <TH>cart_id</TH>
+            <TH>cart_owner</TH>
+            <TH>owner_id</TH>
+            <TH>product_id</TH>
+            <TH>quantity</TH>
+            <TH>size</TH>
+        </TR>
+        {% for data in data_cart %}
+        <TR>
+            <TD class="c1">{{data.cart_id}}</TD>
+            <TD class="c1">{{data.cart_owner}}</TD>
+            <TD class="c1">{{data.owner_id}}</TD>
+            <TD class="c2">{{data.product_id}}</TD>
+            <TD class="c3">{{data.quantity}}</TD>
+            <TD class="c4">{{data.size}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+
+    <!-- THIS SECTION FOR TABLE 'sold' -->
+    <h3>Table 'sold'</h3>
+    <h4>WHEN SOFT UPDATE only id will constant, not update the entire column likes : products.c.product_name</h4>
+    <table>
+        <TR>
+            <TH>sold_id</TH>
+            <TH>product_id</TH>
+            <TH>quantity</TH>
+            <TH>size</TH>
+            <TH>product_name</TH>
+            <TH>price</TH>
+            <TH>images</TH>
+        </TR>
+        {% for data in data_sold %}
+        <TR>
+            <TD class="c1">{{data.sold_id}}</TD>
+            <TD class="c1">{{data.product_id}}</TD>
+            <TD class="c1">{{data.quantity}}</TD>
+            <TD class="c2">{{data.size}}</TD>
+            <TD class="c3">{{data.product_name}}</TD>
+            <TD class="c4">{{data.price}}</TD>
+            <TD class="c4">{{data.images}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+    <!-- THIS SECTION FOR TABLE 'order' -->
+    <h3>Table 'order'</h3>
+    <table>
+        <TR>
+            <TH>order_id</TH>
+            <TH>created_at</TH>
+            <TH>shipping_method</TH>
+            <TH>owner_id</TH>
+            <TH>buyer_name</TH>
+            <TH>sold_id</TH>
+            <TH>order_price</TH>
+        </TR>
+        {% for data in data_order %}
+        <TR>
+            <TD class="c1">{{data.order_id}}</TD>
+            <TD class="c1">{{data.created_at}}</TD>
+            <TD class="c1">{{data.shipping_method}}</TD>
+            <TD class="c2">{{data.owner_id}}</TD>
+            <TD class="c2">{{data.buyer_name}}</TD>
+            <TD class="c4">{{data.sold_id}}</TD>
+            <TD class="c4">{{data.order_price}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+    <br><hr>
+
+
+
+    
+
+
+</body>
+</html>
